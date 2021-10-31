@@ -208,6 +208,11 @@ root.buttons(gears.table.join(
 -- Set keys
 root.keys(globalkeys)
 
+-- Enable sloppy focus, so that focus follows mouse.
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+end)
+
 -- returnings
 return {
     clientbuttons = gears.table.join(
