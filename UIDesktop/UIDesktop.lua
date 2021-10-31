@@ -1,5 +1,4 @@
 -- Purpose: awesomewm desktopUI - layouts, statusbar
-local awful = require("awful")
 
 require("UIDesktop.wibar")
 require("UIDesktop.titlebar")

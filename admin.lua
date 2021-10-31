@@ -1,7 +1,9 @@
 -- Purpose: For all the other important stuff
 
 local awful = require("awful")
+-- naughty is notifications library
 local naughty = require("naughty")
+require("awful.autofocus")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to

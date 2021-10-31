@@ -20,6 +20,9 @@ local bindings = {
     ),
 
     run = function()
+        -- Enable hotkeys help widget for VIM and other apps
+        require("awful.hotkeys_popup.keys")
+
         globalkeys = gears.table.join(
             awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
                       {description="show help", group="awesome"}),
