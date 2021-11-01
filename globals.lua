@@ -8,7 +8,6 @@ beautiful.init("~/.config/awesome/theme/theme.lua")
 -- admin: other necessary stuff
 require("admin")
 
-menubar = require("menubar")
 hotkeys_popup = require("awful.hotkeys_popup")
 
 -- This is used later as the default terminal and editor to run.
@@ -39,7 +38,4 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "open terminal", terminal }
                                   }
                         })
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
-
