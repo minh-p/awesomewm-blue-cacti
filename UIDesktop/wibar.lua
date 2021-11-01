@@ -59,7 +59,7 @@ awful.screen.connect_for_each_screen(function(s)
     require("UIDesktop.wallpaper").run(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({"", "", "", "4", "5", "6", "7"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -75,7 +75,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+        buttons = taglist_buttons,
     }
 
     -- Create a tasklist widget
@@ -83,5 +83,23 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons
+    }
+
+    s.wibartaglist = awful.wibar{
+        screen = s,
+        height = 25,
+        width = 210,
+        position = "top"
+    }
+
+    s.wibartaglist.x = s.geometry.x + 10
+    s.wibartaglist.y = s.geometry.y + 5
+
+    s.wibartaglist:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- left widget
+            layout = wibox.layout.fixed.horizontal,
+            s.mytaglist,
+        },
     }
 end)
