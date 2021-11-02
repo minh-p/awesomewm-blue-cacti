@@ -49,10 +49,10 @@ theme.taglist_fg_empty = "#FFFFFF"
 theme.taglist_fg_occupied = "#FFFFFF"
 theme.taglist_fg_focus = "#FFFFFF"
 
-theme.tasklist_bg_normal = "#165386"
-theme.tasklist_bg_focus = "#175270"
+theme.tasklist_bg_normal = "#1c3740"
+theme.tasklist_bg_focus = "#2f6071"
 
-theme.tasklist_fg_normal = "#ffffff"
+theme.tasklist_fg_normal = "#FFFFFF"
 theme.tasklist_shape_border_color_focus = "#000000"
 theme.tasklist_shape_border_color = "#1c3740"
 theme.tasklist_disable_task_name = true

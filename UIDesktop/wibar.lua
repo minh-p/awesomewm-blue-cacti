@@ -80,6 +80,10 @@ awful.screen.connect_for_each_screen(function(s)
         bg = gears.color.parse_color("#ffffff")
     }
 
+    local function tasklistShape(cr, width, height)
+        return gears.shape.rounded_rect(cr, width, height, 5)
+    end
+
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
@@ -87,7 +91,7 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons,
         style    = {
             shape_border_width = 1,
-            shape  = gears.shape.rounded_bar,
+            shape = tasklistShape
         },
         layout   = {
             spacing = 10,
