@@ -50,7 +50,7 @@ theme.taglist_fg_occupied = "#FFFFFF"
 theme.taglist_fg_focus = "#FFFFFF"
 
 theme.tasklist_bg_normal = "#1c3740"
-theme.tasklist_bg_focus = "#2f6071"
+theme.tasklist_bg_focus = "#346C8B"
 
 theme.tasklist_fg_normal = "#FFFFFF"
 theme.tasklist_shape_border_color_focus = "#000000"
