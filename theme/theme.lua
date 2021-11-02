@@ -113,7 +113,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.titlebar_bg_focus = "#2f6071"
+theme.titlebar_bg_focus = "#1E2132"
 
 theme.wallpaper = "~/.config/awesome/theme/nightlight.png"
 
