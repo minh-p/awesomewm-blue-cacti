@@ -41,7 +41,21 @@ theme.border_marked = "#91231c"
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
-theme.taglist_bg_focus = "#165386"
+theme.taglist_bg_focus = "#2f6071"
+theme.taglist_bg_empty = "#1c3740"
+theme.taglist_bg_occupied = "#1c3740"
+
+theme.taglist_fg_empty = "#FFFFFF"
+theme.taglist_fg_occupied = "#FFFFFF"
+theme.taglist_fg_focus = "#FFFFFF"
+
+theme.tasklist_bg_normal = "#165386"
+theme.tasklist_bg_focus = "#175270"
+
+theme.tasklist_fg_normal = "#ffffff"
+theme.tasklist_shape_border_color_focus = "#000000"
+theme.tasklist_shape_border_color = "#1c3740"
+theme.tasklist_disable_task_name = true
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)

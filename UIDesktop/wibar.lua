@@ -59,7 +59,7 @@ awful.screen.connect_for_each_screen(function(s)
     require("UIDesktop.wallpaper").run(s)
 
     -- Each screen has its own tag table.
-    awful.tag({"", "", "", "4", "5", "6", "7"}, s, awful.layout.layouts[1])
+    awful.tag({"", "", "", "", "", "", ""}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -76,20 +76,57 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons,
+        bg = gears.color.parse_color("#ffffff")
     }
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        buttons = tasklist_buttons,
+        style    = {
+            shape_border_width = 1,
+            shape  = gears.shape.rounded_bar,
+        },
+        layout   = {
+            spacing = 10,
+            layout  = wibox.layout.flex.horizontal
+        },
+        -- Notice that there is *NO* wibox.wibox prefix, it is a template,
+        -- not a widget instance.
+        widget_template = {
+            {
+                {
+                    {
+                        {
+                            id     = 'icon_role',
+                            widget = wibox.widget.imagebox,
+                        },
+                        margins = 2,
+                        widget  = wibox.container.margin,
+                    },
+                    {
+                        id     = 'text_role',
+                        widget = wibox.widget.textbox,
+                    },
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                left  = 10,
+                right = 10,
+                widget = wibox.container.margin
+            },
+            id     = 'background_role',
+            widget = wibox.container.background,
+        },
     }
 
+    -- [[[ Tag List
     s.wibartaglist = awful.wibar{
         screen = s,
+        width = 1900,
         height = 25,
-        width = 210,
-        position = "top"
+        position = "top",
+        bg = gears.color.transparent
     }
 
     s.wibartaglist.x = s.geometry.x + 10
@@ -97,9 +134,18 @@ awful.screen.connect_for_each_screen(function(s)
 
     s.wibartaglist:setup {
         layout = wibox.layout.align.horizontal,
-        { -- left widget
+        expand = "none",
+        {
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
         },
+        {
+            layout = wibox.layout.fixed.horizontal,
+            s.mytasklist
+        },
+        {
+            layout = wibox.layout.fixed.horizontal,
+        }
     }
+    -- ]]]
 end)
