@@ -121,6 +121,14 @@ local bindings = {
                       {description = "lua execute prompt", group = "awesome"}),
             -- Menubar
             awful.key({ modkey }, "p", function() awful.spawn.with_shell("rofi -show drun") end,
+                      {description = "show the menubar", group = "launcher"}),
+
+            -- Screenshot
+            awful.key({ "Control", "Shift" }, "1", function() awful.spawn.with_shell("coreshot -f") end,
+                      {description = "show the menubar", group = "launcher"}),
+            awful.key({ "Control", "Shift" }, "2", function() awful.spawn.with_shell("coreshot -w") end,
+                      {description = "show the menubar", group = "launcher"}),
+            awful.key({ "Control", "Shift" }, "2", function() awful.spawn.with_shell("coreshot -s") end,
                       {description = "show the menubar", group = "launcher"})
         )
 
