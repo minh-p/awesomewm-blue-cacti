@@ -3,6 +3,7 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
+local dpi = require('beautiful').xresources.apply_dpi
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -137,7 +138,15 @@ awful.screen.connect_for_each_screen(function(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
+            wibox.container.margin(
+                wibox.widget {
+                    wibox.container.margin(s.mylayoutbox, dpi(4), dpi(4), dpi(4), dpi(4)),
+                    bg = "#1c3740",
+                    widget = wibox.container.background
+                },
+                dpi(6), dpi(6)
+            ),
+            s.mytaglist
         },
         {
             layout = wibox.layout.fixed.horizontal,
