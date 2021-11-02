@@ -120,8 +120,8 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 
-    -- [[[ Tag List
-    s.wibartaglist = awful.wibar{
+    -- [[[ Top Bar
+    s.topbar = awful.wibar{
         screen = s,
         width = 1900,
         height = 25,
@@ -129,10 +129,10 @@ awful.screen.connect_for_each_screen(function(s)
         bg = gears.color.transparent
     }
 
-    s.wibartaglist.x = s.geometry.x + 10
-    s.wibartaglist.y = s.geometry.y + 5
+    s.topbar.x = s.geometry.x + 10
+    s.topbar.y = s.geometry.y + 5
 
-    s.wibartaglist:setup {
+    s.topbar:setup {
         layout = wibox.layout.align.horizontal,
         expand = "none",
         {
