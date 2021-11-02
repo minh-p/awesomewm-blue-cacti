@@ -120,7 +120,7 @@ local bindings = {
                       end,
                       {description = "lua execute prompt", group = "awesome"}),
             -- Menubar
-            awful.key({ modkey }, "p", function() awful.spawn.with_shell("rofi -show") end,
+            awful.key({ modkey }, "p", function() awful.spawn.with_shell("rofi -show drun") end,
                       {description = "show the menubar", group = "launcher"})
         )
 
