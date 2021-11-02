@@ -59,6 +59,10 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     require("UIDesktop.wallpaper").run(s)
 
+    local function rounded_rect(cr, width, height)
+        return gears.shape.rounded_rect(cr, width, height, 5)
+    end
+
     -- Each screen has its own tag table.
     awful.tag({"", "", "", "", "", "", ""}, s, awful.layout.layouts[1])
 
@@ -77,13 +81,9 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons,
-        bg = gears.color.parse_color("#ffffff")
+        style = {shape = rounded_rect},
+        layout = wibox.layout.fixed.horizontal
     }
-
-    local function tasklistShape(cr, width, height)
-        return gears.shape.rounded_rect(cr, width, height, 5)
-    end
-
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
@@ -91,7 +91,7 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons,
         style    = {
             shape_border_width = 1,
-            shape = tasklistShape
+            shape = rounded_rect
         },
         layout   = {
             spacing = 10,
@@ -144,13 +144,22 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.container.margin(
                 wibox.widget {
+                    shape = rounded_rect,
                     wibox.container.margin(s.mylayoutbox, dpi(4), dpi(4), dpi(4), dpi(4)),
                     bg = "#1c3740",
                     widget = wibox.container.background
                 },
                 dpi(6), dpi(6)
             ),
-            s.mytaglist
+            wibox.container.margin (
+                wibox.widget {
+                    shape = rounded_rect,
+                    wibox.container.margin(s.mytaglist, dpi(4), dpi(4), dpi(4), dpi(4)),
+                    bg = "#1c3740",
+                    widget = wibox.container.background
+                },
+                dpi(6), dpi(6)
+            )
         },
         {
             layout = wibox.layout.fixed.horizontal,
