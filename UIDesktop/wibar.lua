@@ -8,9 +8,6 @@ local dpi = require('beautiful').xresources.apply_dpi
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -167,6 +164,16 @@ awful.screen.connect_for_each_screen(function(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
+            wibox.container.margin (
+                wibox.widget {
+                    shape = rounded_rect,
+                    wibox.container.margin(mytextclock, dpi(4), dpi(4), dpi(4), dpi(4)),
+                    bg = "#1c3740",
+                    fg = "#ffffff",
+                    widget = wibox.container.background,
+                },
+                dpi(6), dpi(6)
+            )
         }
     }
     -- ]]]
