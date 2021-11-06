@@ -176,5 +176,6 @@ awful.screen.connect_for_each_screen(function(s)
             )
         }
     }
+    require("widgets.calendarAttach"):new():attach(mytextclock, s)
     -- ]]]
 end)
