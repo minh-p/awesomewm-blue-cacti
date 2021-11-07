@@ -168,7 +168,7 @@ awful.screen.connect_for_each_screen(function(s)
                 wibox.widget {
                     shape = rounded_rect,
                     wibox.container.margin(mytextclock, dpi(4), dpi(4), dpi(4), dpi(4)),
-                    bg = "#1c3740",
+                    bg = "#012355",
                     fg = "#ffffff",
                     widget = wibox.container.background,
                 },
@@ -176,6 +176,6 @@ awful.screen.connect_for_each_screen(function(s)
             )
         }
     }
-    require("widgets.calendarAttach"):new():attach(mytextclock, s)
+    require("wibox.statusCenterAttach"):new():attach(mytextclock, s)
     -- ]]]
 end)
