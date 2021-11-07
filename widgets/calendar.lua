@@ -62,7 +62,6 @@ local function decorate_cell(widget, flag, date)
 end
 function Calendar.create()
     local calendarWidget = wibox.widget {
-        date     = os.date('*t'),
         fn_embed = decorate_cell,
         widget   = wibox.widget.calendar.month
     }

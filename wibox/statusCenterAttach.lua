@@ -3,7 +3,7 @@ local gears = require("gears")
 local awful = require("awful")
 
 local StatusCenterAttach = {
-    creationPropertiesChanges = {},
+    refreshTime = 10
 }
 
 function StatusCenterAttach:createCalendarWidget()
@@ -53,6 +53,9 @@ function StatusCenterAttach:handleVisibleness(invisible)
     local screenGeometry = self.screen.geometry
     self.statusCenterWibox.y = screenGeometry.y + 30
     self.statusCenterWibox.visible = true
+
+    -- update calendar
+    self.calendar.date = os.date("*t")
 end
 
 
