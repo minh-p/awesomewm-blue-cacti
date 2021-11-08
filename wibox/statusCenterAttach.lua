@@ -19,6 +19,7 @@ function StatusCenterAttach:createWibar()
     if not self.statusCenterWibox then
         self.statusCenterWibox = awful.wibar {
             width = 180,
+            height = self.screen.geometry.height - 200,
             visible = false,
             fg = "#ffffff",
             bg = gears.color.transparent,
@@ -44,7 +45,7 @@ function StatusCenterAttach:handleVisibleness(invisible)
         return
     end
 
-    -- set appropriate position for monitor and stuff and then visible
+    -- set appropriate position
     local screenGeometry = self.screen.geometry
     self.statusCenterWibox.y = screenGeometry.y + 30
     self.statusCenterWibox.visible = true
