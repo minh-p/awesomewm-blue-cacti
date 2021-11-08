@@ -16,16 +16,12 @@ function StatusCenterAttach:createWibar()
     -- setup widgets
     self:createCalendarWidget()
 
-    local function rounded_rect(cr, width, height)
-        return gears.shape.rounded_rect(cr, width, height, 10)
-    end
     if not self.statusCenterWibox then
         self.statusCenterWibox = awful.wibar {
             width = 180,
             visible = false,
             fg = "#ffffff",
             bg = gears.color.transparent,
-            shape = rounded_rect,
             border_width = 1,
             screen = self.screen,
             position = "right"
@@ -38,7 +34,6 @@ function StatusCenterAttach:createWibar()
                 wibox.container.margin(self.calendar, 5, 5, 10, 10),
             }
         }
-        self.statusCenterWibox.ontop = true
     end
 end
 
