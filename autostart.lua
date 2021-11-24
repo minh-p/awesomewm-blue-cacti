@@ -1,7 +1,7 @@
 local awful = require("awful")
 
 local autostarts = {
-    compositor = "picom"
+    compositor = "picom --experimental-backends"
 }
 
 awful.spawn.with_shell(autostarts.compositor)
