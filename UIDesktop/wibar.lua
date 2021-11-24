@@ -126,13 +126,12 @@ awful.screen.connect_for_each_screen(function(s)
     s.topbar = awful.wibar{
         screen = s,
         width = 1900,
-        height = 25,
+        height = 23,
         position = "top",
         bg = gears.color.transparent
     }
 
     s.topbar.x = s.geometry.x + 10
-    s.topbar.y = s.geometry.y + 5
 
     s.topbar:setup {
         layout = wibox.layout.align.horizontal,
